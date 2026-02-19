@@ -28,6 +28,11 @@ body {
     align-items: center;
 }
 
+button {
+    background-color: inherit;
+    border: none;
+    color:inherit;
+}
 .button {
     font-size: 1.5rem;
 }
