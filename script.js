@@ -1,35 +1,67 @@
 const songName = document.getElementById("song-name");
+const bandName = document.getElementById("band-name");
 const song = document.getElementById("audio");
 const play = document.getElementById("play");
+const cover = document.getElementById("cover");
+const previous = document.getElementById("previous");
+const pass = document.getElementById("pass");
+
+const naci = {
+  songName: "Naci Otra Vez",
+  artist: "J Arias",
+  file: "naciOtraVez",
+};
+
+const colors = {
+  songName: "Colors",
+  artist: "Black Pumas",
+  file: "colors",
+};
+
+const tadow = {
+  songName: "Tadow",
+  artist: "Massego",
+  file: "tadow",
+};
+
+let isplayingp = false;
+const playlist = [naci, colors, tadow];
+let index = 0;
 
 songName.innerText = "Colors";
 let isplaying = false;
 
+function playSong() {
+  play.querySelector(".bi").classList.remove("bi-play-circle-fill");
+  play.querySelector(".bi").classList.add("bi-pause-circle-fill");
+  song.play();
 
-function playSong(){
-    play.querySelector(".bi").classList.remove("bi-play-circle-fill");
-    play.querySelector(".bi").classList.add("bi-pause-circle-fill");
-    song.play();
-
-    isplaying = true;
-    
+  isplaying = true;
 }
 
-function pauseSong(){
-    play.querySelector(".bi").classList.add("bi-play-circle-fill");
-    play.querySelector(".bi").classList.remove("bi-pause-circle-fill");
-    song.pause();
-    
-    isplaying = false;
+function pauseSong() {
+  play.querySelector(".bi").classList.add("bi-play-circle-fill");
+  play.querySelector(".bi").classList.remove("bi-pause-circle-fill");
+  song.pause();
+
+  isplaying = false;
 }
 
 function playPauseDecider() {
-    if(isplaying === true){
-        pauseSong();
-    }
-    else {
-        playSong();
-    }
+  if (isplaying === true) {
+    pauseSong();
+  } else {
+    playSong();
+  }
 }
+
+function initializeSong() {
+  cover.src = `imagens/${playlist[index].file}.jpg`;
+  song.src = `songs/${playlist[index].file}.mp3`;
+  songName.innerText = playlist[index].songName;
+  bandName.innerText = playlist[index].artist;
+}
+
+initializeSong();
 
 play.addEventListener("click", playPauseDecider);
