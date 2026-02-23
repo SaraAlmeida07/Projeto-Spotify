@@ -62,6 +62,29 @@ function initializeSong() {
   bandName.innerText = playlist[index].artist;
 }
 
+function previousSong() {
+    if(index === 0) {
+        index = playlist.length -1;
+    }
+    else
+    index -= 1;
+    initializeSong();
+    playSong();
+}
+
+function nextSong() {
+    if(index === playlist.length -1) {
+        index = 0;
+    }
+    else
+    index += 1;
+    initializeSong();
+    playSong();
+}
+
+
 initializeSong();
 
 play.addEventListener("click", playPauseDecider);
+previous.addEventListener("click", previousSong);
+pass.addEventListener("click",nextSong);
