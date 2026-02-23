@@ -5,6 +5,9 @@ const play = document.getElementById("play");
 const cover = document.getElementById("cover");
 const previous = document.getElementById("previous");
 const pass = document.getElementById("pass");
+const currentProgress = document.getElementById("current-progress");
+const progressContainer = document.getElementById("progress-container");
+
 
 const naci = {
   songName: "Naci Otra Vez",
@@ -82,9 +85,22 @@ function nextSong() {
     playSong();
 }
 
+function updateProgressBar() {
+  
+    const barWidth = (song.currentTime/ song.duration)*100 ;
+    currentProgress.style.setProperty("--progress", `${barWidth}%`);
+}
 
+function jumpTo(event) {
+    const width = progressContainer.clientWidth;
+    const clickPosition = event.offsetX;
+    const jumpToTime = (clickPosition/width)* song.duration;
+    song.currentTime = jumpToTime;
+}
 initializeSong();
 
 play.addEventListener("click", playPauseDecider);
 previous.addEventListener("click", previousSong);
 pass.addEventListener("click",nextSong);
+song.addEventListener("timeupdate", updateProgressBar);
+progressContainer.addEventListener("click", jumpTo);
