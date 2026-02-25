@@ -12,7 +12,7 @@ body {
     align-items: center;
 }
 
-#below-cover {
+.info-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -21,7 +21,7 @@ body {
 
 }
 
-#button-container {
+.controls-nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -51,18 +51,16 @@ button {
     width: 450px ;
 }
 
-.music-container{
-    
-}
 
-.playlist-tittle{
+
+.tittle{
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin: 0rem 0rem 4rem 0rem;  
 }
 
-#song-name {
+.song-title {
     font-size: 1.5 rem;
     font-weight: bolder;
 }
@@ -70,11 +68,9 @@ button {
 .ligth-color{
     color: rgb(139 153 156)
 }
-#band-name{
 
-}
 
-#progress-bar{
+.barra-progresso{
     background-color: rgb(139 153 156) ;
     height: 3px;
     width: 100% ;
@@ -82,14 +78,14 @@ button {
     
 }
 
-#current-progress {
+.progress-fill {
     --progress: 0%;
     background-color: white;
     height: inherit;
     width: var(--progress);
 }
 
-#progress-container {
+.container-progress {
     padding-bottom: 1rem;
     cursor: pointer;
 }
