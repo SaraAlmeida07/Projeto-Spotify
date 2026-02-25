@@ -43,7 +43,7 @@ const tadow = {
 
 let isplaying = false;
 let isShuffled = false;
-const originalPlaylist = [naci, colors, npp, tadow];
+const originalPlaylist = JSON.parse(localStorage.getItem("playlist")) ?? [naci, colors, npp, tadow];
 let index = 0;
 let sortedPlaylist = [...originalPlaylist];
 
@@ -179,7 +179,15 @@ function likeButtonRender() {
   }
 }
 
-function likeButtonClick() {}
+function likeButtonClick() {
+  if(sortedPlaylist[index].liked === false) {
+    sortedPlaylist[index].liked = true;
+  } else {
+    sortedPlaylist[index].liked = false;
+  }
+  likeButtonRender();
+  localStorage.setItem("playlist", JSON.stringify(sortedPlaylist));
+}
 
 initializeSong();
 

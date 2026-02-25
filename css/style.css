@@ -47,7 +47,7 @@ button {
     font-size: 4rem;
 }
 
-#cover {
+.cover {
     width: 450px ;
 }
 
@@ -55,7 +55,7 @@ button {
     
 }
 
-#playlist-tittle{
+.playlist-tittle{
     display: flex;
     flex-direction: row;
     justify-content: center;
